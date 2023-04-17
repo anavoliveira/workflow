@@ -1,0 +1,16 @@
+name: teste upload
+on: 
+  push:
+    branches: ['main'] ['develop']
+
+jobs:
+  build:
+    steps: 
+      - shell: bash
+        run: |
+          expr 1 + 1 > output.log
+      - name: Upload
+        uses: action/upload-artifact@v3
+        with: 
+          name: output-log-file
+          path: output.log
